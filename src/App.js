@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import Burger from './component/burger/burger';
+import React, { Component } from 'react'
+import Buildcontrols from './component/buildcontrols/buildcontrols';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    ingridients:{
+      Meat:1,
+      Cheese:0,
+      Salad:2,
+      Bacon:0,
+    },
+    totalprice: 1,
+  }
+  ozgar = () => {
+    // console.log(this.state.ingridients);
+    console.log("ozgar");
+  }
+
+  render() {
+    return (
+      <div className="App">
+       <Burger ingridients={this.state.ingridients}></Burger>
+       {/* <Buildcontrols ozgar={this.state.ingridients}/> */}
+       <Buildcontrols ozgar={this.ozgar}/>
+       <button onClick={this.ozgar}>click</button>
+      </div>
+    );
+  }
 }
 
-export default App;
+
+
+
+
+
+// function App() {
+
+//   return (
+//     <div className="App">
+//      <Burger></Burger>
+//     </div>
+//   );
+// }
+
+// export default App;
+
